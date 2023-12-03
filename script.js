@@ -17,21 +17,27 @@ function playRound(playerSelection, computerSelection) {
     if (computerSelection === "Paper") {
       return `You win! ${playerSelection} beats ${computerSelection}!`;
     } else if (computerSelection === "Scissors") {
-      return `You lose! ${computerSelection} beats ${playerSelection}!`;
+      return `You lose! ${playerSelection} is beaten by ${computerSelection}!`;
     }
   } else if (playerSelection === "Paper") {
     if (computerSelection === "Rock") {
       return `You win! ${playerSelection} beats ${computerSelection}!`;
     } else if (computerSelection === "Scissors") {
-      return `You lose! ${computerSelection} beats ${playerSelection}!`;
+      return `You lose! ${playerSelection} is beaten by ${computerSelection}!`;
     }
   } else if (playerSelection === "Scissors") {
     if (computerSelection === "Paper") {
       return `You win! ${playerSelection} beats ${computerSelection}!`;
     } else if (computerSelection === "Rock") {
-      return `You lose! ${computerSelection} beats ${playerSelection}!`;
+      return `You lose! ${playerSelection} is beaten by ${computerSelection}!`;
     }
   } else {
     return `${playerSelection} is not a valid option. Choose between 'Rock', 'Paper' or 'Scissors'`;
   }
+}
+
+function game() {
+  let userInput = prompt("Type your choice: Rock, Paper or Scissors:");
+  let playerSelection = userInput.charAt(0).toUpperCase() + userInput.slice(1).toLowerCase();
+  
 }
