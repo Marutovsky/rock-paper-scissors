@@ -1,1 +1,6 @@
-console.log("Hello");
+//getComputerChoice will randomly return 'Rock', 'Paper' or 'Scissors'
+// it has to have 3 strings - rock, paper and scissors
+// so creating an array may be a good option
+// strings have to be returned randomly
+// So I'm gonna make random number between 0 - 2 and return string from arrayw with given random ID
+
