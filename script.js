@@ -16,32 +16,68 @@ function playRound(playerSelection, computerSelection) {
   let tie = `It's a tie! ${playerSelection} ties with ${computerSelection}.`;
   let err = `${playerSelection} is not a valid option. Choose between 'Rock', 'Paper' or 'Scissors'`;
   if (playerSelection === computerSelection) {
-    return tie;
+    console.log(tie);
+    return "tie";
   } else if (playerSelection === "Rock") {
     if (computerSelection === "Paper") {
-      return win;
+      console.log(win);
+      return "player";
     } else if (computerSelection === "Scissors") {
-      return failure;
+      console.log(failure);
+      return "computer";
     }
   } else if (playerSelection === "Paper") {
     if (computerSelection === "Rock") {
-      return win;
+      console.log(win);
+      return "player";
     } else if (computerSelection === "Scissors") {
-      return failure;
+      console.log(failure);
+      return "computer";
     }
   } else if (playerSelection === "Scissors") {
     if (computerSelection === "Paper") {
-      return win;
+      console.log(win);
+      return "player";
     } else if (computerSelection === "Rock") {
-      return failure;
+      console.log(failure);
+      return "computer";
     }
   } else {
     return err;
   }
 }
 
-function game() {
-  let userInput = prompt("Type your choice: Rock, Paper or Scissors:");
-  let playerSelection = userInput.charAt(0).toUpperCase() + userInput.slice(1).toLowerCase();
 
+// Main function of the game. If user or computer beats 5 points, the game should end 
+
+function game() {
+  let playerScore = 0,
+      computerScore = 0;
+  // While playerScore and computerScore are true (< 5) repeat the game. If one of them is false (=== 5), end the loop and display result of the game
+  while(playerScore < 5 && computerScore < 5) {
+    let userInput = prompt("Type your choice: Rock, Paper or Scissors:");
+    let playerSelection = userInput.charAt(0).toUpperCase() + userInput.slice(1).toLowerCase();
+
+    let score = playRound(playerSelection, getComputerChoice());
+
+    if (score === "tie") {
+      console.log(`Player: ${playerScore}, Computer: ${computerScore}`);
+    } else if (score === "player") {
+      playerScore++;
+      console.log(`Player: ${playerScore}, Computer: ${computerScore}`);
+    } else if (score === "computer") {
+      computerScore++;
+      console.log(`Player: ${playerScore}, Computer: ${computerScore}`);
+    } else {
+      console.log("Something went wrong!");
+    }
+  }
+
+  if (playerScore === 5) {
+    return "Player is the winner!";
+  } else if (computerScore === 5) {
+    return "Computer is the winner... :(";
+  } else {
+    return "Something went wrong";
+  }
 }
