@@ -74,10 +74,10 @@ function game() {
   }
 
   if (playerScore === 5) {
-    return "Player is the winner!";
+    console.log("Player is the winner!");
   } else if (computerScore === 5) {
-    return "Computer is the winner... :(";
+    console.log("Computer is the winner... :(");
   } else {
-    return "Something went wrong";
+    console.log("Something went wrong");
   }
 }
