@@ -3,6 +3,8 @@ const roundResult = document.querySelector('.round-result');
 const playerScoreDisplay = document.querySelector('.player-score');
 const computerScoreDisplay = document.querySelector('.computer-score');
 
+let playerScore = 0;
+let computerScore = 0;
 
 for (let button of buttons) {
   button.addEventListener('click', () => {
@@ -19,6 +21,7 @@ for (let button of buttons) {
         break;
     }
     playRound(playerSelection, getComputerChoice());
+    checkGameEnd();
   });
 }
 
@@ -28,24 +31,17 @@ function getComputerChoice() {
   return OPTIONS[randomIndex];
 }
 
-let playerScore = 0;
-let computerScore = 0;
-
 function playRound(playerSelection, computerSelection) {
-  let win = `You win! ${playerSelection} beats ${computerSelection}!`;
-  let failure = `You lose! ${playerSelection} is beaten by ${computerSelection}!`;
-  let tie = `It's a tie! ${playerSelection} ties with ${computerSelection}.`;
-
   if (playerSelection === computerSelection) {
-    roundResult.textContent = tie;
+    roundResult.textContent = `It's a tie! ${playerSelection} ties with ${computerSelection}.`;
     displayScore();
   } else if ((playerSelection === 'Rock' && computerSelection === 'Scissors') || (playerSelection === 'Paper' && computerSelection === 'Rock') || (playerSelection === 'Scissors' && computerSelection === 'Paper')) {
       playerScore++;
-      roundResult.textContent = win;
+      roundResult.textContent = `You win! ${playerSelection} beats ${computerSelection}!`;
       displayScore();
   } else if ((playerSelection === 'Rock' && computerSelection === 'Paper') || (playerSelection === 'Paper' && computerSelection === 'Scissors') || (playerSelection === 'Scissors' && computerSelection === 'Rock')) {
       computerScore++
-      roundResult.textContent = failure;
+      roundResult.textContent = `You lose! ${playerSelection} is beaten by ${computerSelection}!`;
       displayScore();
   } else {
     return 'Upsss, something went wrong!';
@@ -55,4 +51,10 @@ function playRound(playerSelection, computerSelection) {
 function displayScore() {
   playerScoreDisplay.textContent = `Player: ${playerScore}`;
   computerScoreDisplay.textContent = `Computer: ${computerScore}`;
+}
+
+function checkGameEnd() {
+  if (playerScore === 5 || computerScore === 5) {
+    buttons.forEach((button) => button.disabled = true);
+  }
 }
