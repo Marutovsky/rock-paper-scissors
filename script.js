@@ -33,7 +33,7 @@ resetButton.addEventListener('click', () => {
   buttons.forEach((button) => button.disabled = false);
   displayScore();
   roundResult.textContent = 'Make your choice!';
-  winnerMessage.textContent = '';
+  winnerMessage.innerHTML = '&nbsp;';
 });
 
 function getComputerChoice() {

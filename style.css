@@ -1,0 +1,28 @@
+body {
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.play-buttons {
+  margin-bottom: 20px;
+}
+
+.round-result {
+  margin-bottom: 20px;
+}
+
+.current-score {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.winner-message {
+  margin-bottom: 20px;
+}
