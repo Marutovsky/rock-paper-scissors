@@ -6,10 +6,23 @@ body {
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
+  background-color: #D8C99B;
+  color: #273E47;
+  font-size: 18px;
 }
 
 .play-buttons {
   margin-bottom: 20px;
+}
+
+.play-buttons > button {
+  background-color: #D8973C;
+  border: 2px #BD632F solid;
+  color: #273E47;
+  border-radius: 8px;
+  padding: 16px;
+  font-size: 16px;
+  opacity: 0.85;
 }
 
 .round-result {
@@ -25,4 +38,19 @@ body {
 
 .winner-message {
   margin-bottom: 20px;
+}
+
+button:hover,
+#reset-button:hover {
+  opacity: 1;
+}
+
+#reset-button {
+  color: white;
+  background-color: #A4243B;
+  border: 2px #BD632F solid;
+  border-radius: 8px;
+  padding: 16px;
+  font-size: 16px;
+  opacity: 0.85;
 }
