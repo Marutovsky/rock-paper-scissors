@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
 body {
   height: 100vh;
@@ -19,6 +19,7 @@ body {
 }
 
 .play-buttons > button {
+  width: 100px;
   background-color: #D8973C;
   border: 2px #BD632F solid;
   color: #273E47;
@@ -26,13 +27,17 @@ body {
   padding: 16px;
   font-size: 16px;
   opacity: 0.85;
-  transition: all 0.2s;
+  margin: 0px 10px;
+  transition: 
+    all 200ms,
+    transform 10ms;
 }
 
 .play-buttons > button:disabled {
   cursor: not-allowed;
   opacity: 0.85;
   box-shadow: none;
+  font-weight: 400;
 }
 
 .round-result {
@@ -54,8 +59,19 @@ button:hover,
 #reset-button:hover {
   opacity: 1;
   box-shadow: 0px 0px 0px 2px #BD632F;
-  transition: all 0.2s;
   cursor: pointer;
+  font-weight: 600;
+  transition: 
+    all 200ms,
+    transform 10ms;
+}
+
+button:active,
+#reset-button:active {
+  transform: scale(0.95, 0.95);
+  transition: 
+  all 200ms,
+  transform 10ms;
 }
 
 #reset-button {
@@ -66,5 +82,7 @@ button:hover,
   padding: 16px;
   font-size: 16px;
   opacity: 0.85;
-  transition: all 0.2s;
+  transition: 
+    all 200ms,
+    transform 10ms;
 }
